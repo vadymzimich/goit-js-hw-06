@@ -13,19 +13,11 @@ const images = [
   },
 ];
 
-// for (let img of images)
-//   document
-//     .querySelector(".gallery")
-//     .insertAdjacentHTML(
-//       "beforeEnd",
-//       `<li><img src="${img.url}" alt="${img.alt}" width = "480"></li>`
-//     );
+const gallery = document.querySelector(".gallery");
+const createMarkup = images
+  .map(
+    (img) => `<li><img src="${img.url}" alt="${img.alt}" width = "480"></li>`
+  )
+  .join("");
 
-const createMarkup = images.map((img) => {
-  document
-    .querySelector(".gallery")
-    .insertAdjacentHTML(
-      "beforeEnd",
-      `<li><img src="${img.url}" alt="${img.alt}" width = "480"></li>`
-    );
-});
+gallery.insertAdjacentHTML("beforeEnd", createMarkup);

@@ -2,7 +2,10 @@ const validInput = document.querySelector("#validation-input");
 const validLength = validInput.getAttribute("data-length");
 
 const handleValidation = (element) => {
-  if (validLength > element.target.value.length) {
+  if (
+    validLength > element.target.value.length ||
+    validLength < element.target.value.length
+  ) {
     validInput.classList.remove("valid");
     validInput.classList.add("invalid");
   } else {

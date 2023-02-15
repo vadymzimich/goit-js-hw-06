@@ -6,28 +6,15 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
-const itemEl = [];
-const listEl = document.querySelector("#ingredients");
 
-ingredients.map((ingredient) => {
-  const element = document.createElement("li");
-  element.textContent = ingredient;
-  element.classList.add("item");
+const list = document.querySelector("#ingredients");
+const liArray = [];
 
-  itemEl.push(element);
-  listEl.append(element);
+ingredients.forEach((ingredient) => {
+  const item = document.createElement("li");
+  item.className = "item";
+  item.textContent = ingredient;
+  liArray.push(item);
 });
 
-// const createList = function (arr) {
-//   const list = [];
-//   arr.forEach((ingredient) => {
-//     const ingredientItem = document.createElement("li");
-//     ingredientItem.classList.add("item");
-//     ingredientItem.textContent = [ingredient];
-//     list.push(ingredientItem);
-//   });
-//   return ingredientItem;
-// };
-
-// const listEl = document.querySelector("#ingredients");
-// listEl.append(createList(ingredients));
+list.append(...liArray);
